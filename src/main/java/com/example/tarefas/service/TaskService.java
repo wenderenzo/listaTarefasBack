@@ -7,7 +7,7 @@ import java.util.List;
 public interface TaskService {
     List<Task> findAll();
     Task save(Task task);
-    String deleteById(Long id);
+    boolean deleteById(Long id);
     Task updateTask(Long id, Task taskDetails);
 
     List<Task> updateTaskOrder(List<Task> tasks);

@@ -5,9 +5,6 @@ import java.util.List;
 import com.example.tarefas.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.data.domain.Sort;
-
-import java.util.List;
 
 @Service
 public class TaskServiceImpl implements TaskService {
@@ -31,12 +28,12 @@ public class TaskServiceImpl implements TaskService {
 
 
     @Override
-    public String deleteById(Long id) {
+    public boolean deleteById(Long id) {
         if (taskRepository.existsById(id)) {
             taskRepository.deleteById(id);
-            return "Task deleted successfully";
+            return true;
         } else {
-            return "Task with id " + id + " not found";
+            return false;
         }
     }
 
